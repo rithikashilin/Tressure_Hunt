@@ -1,0 +1,166 @@
+def adventure_game():
+    print("*" * 30)
+    print("   THE TREASURE ISLAND QUEST")
+    print("*" * 30)
+
+    player_name = input("Enter your name: ")
+    health = 100
+
+    print(f"\nWelcome, {player_name}!")
+    print("Your mission is to find the hidden treasure.\n")
+
+    while health > 0:
+
+        # First Choice
+        choice1 = input(
+            "You arrive at a crossroads. Go 'left' or 'right'? "
+        ).lower()
+
+        if choice1 == "left":
+            print("\nYou enter a dark forest.")
+
+            # Second Choice
+            choice2 = input(
+                "You see a river. Do you 'swim' or 'build' a raft? "
+            ).lower()
+
+            if choice2 == "swim":
+                print("\nOh no! A crocodile attacks you.")
+                health -= 50
+                print(f"Health: {health}")
+
+                # Third Choice
+                choice3 = input(
+                    "Run to a 'cave' or climb a 'tree'? "
+                ).lower()
+
+                if choice3 == "cave":
+                    print("\nYou find a treasure chest inside!")
+                    print("Congratulations! You Win!")
+                    break
+
+                elif choice3 == "tree":
+                    print("\nThe branch breaks and you fall.")
+                    health -= 50
+                    print(f"Health: {health}")
+                    print("Game Over!")
+                    break
+
+                else:
+                    print("\nInvalid choice. Game Over!")
+                    break
+
+            elif choice2 == "build":
+                print("\nYou safely cross the river.")
+                print("You discover the hidden treasure!")
+                print("Congratulations! You Win!")
+                break
+
+            else:
+                print("\nInvalid choice. Game Over!")
+                break
+
+        elif choice1 == "right":
+            print("\nYou encounter a dragon!")
+
+            # Fourth Choice
+            choice4 = input(
+                "Do you 'fight' or 'run'? "
+            ).lower()
+
+            if choice4 == "fight":
+                print("\nThe dragon is too powerful.")
+                health = 0
+                print(f"Health: {health}")
+                print("Game Over!")
+                break
+
+            elif choice4 == "run":
+                print("\nYou escape safely but lose the treasure.")
+                print("You survived!")
+
+                # Fifth Choice
+                choice5 = input(
+                    "You find an ancient map. Do you 'take' it or 'ignore' it? "
+                ).lower()
+
+                if choice5 == "take":
+                    print("\nThe map shows the location of a hidden temple!")
+
+                    # Sixth Choice
+                    choice6 = input(
+                        "At the temple, do you enter through the 'front' gate or a 'secret' passage? "
+                    ).lower()
+
+                    if choice6 == "secret":
+                        print("\nYou avoid the traps and reach the treasure room!")
+
+                        # Seventh Choice
+                        choice7 = input(
+                            "You see three treasure chests: 'gold', 'silver', or 'wooden'. Which one do you open? "
+                        ).lower()
+
+                        if choice7 == "gold":
+                            print("\nThe chest is overflowing with gold coins!")
+                            print("🏆 Congratulations! You Win!")
+
+                        elif choice7 == "silver":
+                            print("\nYou find a magical sword and rare gems!")
+                            print("🏆 Congratulations! You Win!")
+
+                        elif choice7 == "wooden":
+                            print("\nA snake jumps out and bites you!")
+                            health -= 50
+                            print(f"Health: {health}")
+
+                            if health > 0:
+                                print("You survive and discover a hidden treasure map!")
+                                print("🏆 You Win!")
+                            else:
+                                print("Game Over!")
+
+                        else:
+                            print("\nInvalid choice. Game Over!")
+
+                        break
+
+                    elif choice6 == "front":
+                        print("\nA trap is triggered!")
+                        health -= 50
+                        print(f"Health: {health}")
+
+                        if health > 0:
+                            print("You manage to escape with some treasure!")
+                            print("🏆 You Win!")
+                        else:
+                            print("Game Over!")
+
+                        break
+
+                    else:
+                        print("\nInvalid choice. Game Over!")
+                        break
+
+                elif choice5 == "ignore":
+                    print("\nWithout the map, you wander for days and get lost.")
+                    print("Game Over!")
+                    break
+
+                else:
+                    print("\nInvalid choice. Game Over!")
+                    break
+
+            else:
+                print("\nInvalid choice. Game Over!")
+                break
+
+        else:
+            print("\nYou got lost.")
+            print("Game Over!")
+            break
+
+    print("\nThanks for playing!")
+
+
+# Start the game
+adventure_game()
